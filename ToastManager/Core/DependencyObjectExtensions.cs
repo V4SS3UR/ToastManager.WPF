@@ -1,7 +1,17 @@
 ﻿using System.Windows.Media;
+
+/* Modification non fusionnée à partir du projet 'ToastManager (net461)'
+Avant :
+using System.Windows;
+Après :
+using System.Windows;
+using ToastManager;
+using ToastManager.WPF;
+using ToastManager.Core;
+*/
 using System.Windows;
 
-namespace ToastManager.WPF
+namespace ToastManager.Core
 {
     public static class DependencyObjectExtensions
     {
@@ -24,7 +34,7 @@ namespace ToastManager.WPF
                 if (childType == null)
                 {
                     // recursively drill down the tree
-                    foundChild = FindChild<T>(child, childName);
+                    foundChild = child.FindChild<T>(childName);
 
                     // If the child is found, break so we do not overwrite the found child. 
                     if (foundChild != null) break;

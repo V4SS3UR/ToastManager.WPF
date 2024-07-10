@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ToastManager.WPF
+namespace ToastManager.Core
 {
     public class RelayCommand : ICommand
     {

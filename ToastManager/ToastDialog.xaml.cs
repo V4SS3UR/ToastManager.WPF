@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using ToastManager.Core;
 
-namespace ToastManager.WPF.View
+namespace ToastManager
 {
     /// <summary>
     /// Logique d'interaction pour Toast_View.xaml
     /// </summary>
-    public partial class Toast_View : UserControl, INotifyPropertyChanged
+    public partial class ToastDialog : UserControl, INotifyPropertyChanged
     {
         public event Action OnOkButtonClick;
         public event Action OnYesButtonClick;
@@ -57,33 +57,30 @@ namespace ToastManager.WPF.View
 
 
 
-        public Toast_View()
+        public ToastDialog()
         {
             InitializeComponent();
 
-            this.DataContext = this;
+            DataContext = this;
 
-            this.OkButtonCommand = new RelayCommand(command => OnOkButtonClick?.Invoke());
-            this.YesButtonCommand = new RelayCommand(command => OnYesButtonClick?.Invoke());
-            this.NoButtonCommand = new RelayCommand(command => OnNoButtonClick?.Invoke());
-            this.CancelButtonCommand = new RelayCommand(command => OnCancelButtonClick?.Invoke());
-            this.ExitButtonCommand = new RelayCommand(command => OnExitButtonClick?.Invoke());
+            OkButtonCommand = new RelayCommand(command => OnOkButtonClick?.Invoke());
+            YesButtonCommand = new RelayCommand(command => OnYesButtonClick?.Invoke());
+            NoButtonCommand = new RelayCommand(command => OnNoButtonClick?.Invoke());
+            CancelButtonCommand = new RelayCommand(command => OnCancelButtonClick?.Invoke());
+            ExitButtonCommand = new RelayCommand(command => OnExitButtonClick?.Invoke());
         }
 
-        public Toast_View(string message, string title = "Info", 
-            ToastType toastType = ToastType.Info, 
+        public ToastDialog(string message, string title = "Info",
+            ToastType toastType = ToastType.Info,
             ToastButton toastButton = ToastButton.Yes | ToastButton.No,
             bool isDarkBackground = false) : this()
         {
-            this.Message = message;
-            this.Title = title;
-            this.ToastType = toastType;
-            this.ToastButton = toastButton;
-            this.IsDarkBackground = isDarkBackground;
+            Message = message;
+            Title = title;
+            ToastType = toastType;
+            ToastButton = toastButton;
+            IsDarkBackground = isDarkBackground;
         }
-
-
-        
 
 
 
