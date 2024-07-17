@@ -61,11 +61,7 @@ Customize the appearance and behavior of toast views by modifying the template o
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to ToastManager, please follow these steps:
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+Contributions are welcome!
 
 
 ---
