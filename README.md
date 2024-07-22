@@ -2,13 +2,24 @@
 
 ToastManager is a simple C# library for displaying customizable toast notifications or views as overlay in WPF (Windows Presentation Foundation) applications.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/af698db3-e2c6-40d9-a55d-1c19d291e9be">
+</p>
+
 ## Features
+
 
 - **Toast Types:** Display toast messages categorized as Warning, Error, Success, and Info.
 - **Customization:** Customize toast messages with different titles, messages, icons, and button configurations.
 - **MVVM Support:** Designed with MVVM architecture for seamless integration into WPF projects.
 - **Responsive Design:** Toasts are responsive and can adapt to any different style or template.
 - **Flexibility:** Display custom controls or views instead of traditional toast notifications for richer user experiences.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/28fe0bee-baa2-463c-acdf-4f9e595c9330" Height="50%" width="50%">
+  <img src="https://github.com/user-attachments/assets/a4b2eacd-58ae-46c8-aeb9-31d579ab3de2" Height="41%" width="41%">
+</p>
+
   
 ## Installation
 
