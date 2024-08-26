@@ -68,7 +68,7 @@ toastView.OnExitButtonClick += () => foo();
 
 ### Customize Toast Views
 
-Customize the appearance and behavior of toast views by modifying the template of the [Toast_View.xaml](https://github.com/V4SS3UR/ToastManager.WPF/blob/main/ToastManager/WPF/View/Toast_View.xaml) UserControl provided in the library. 
+Customize the appearance and behavior of toast views by modifying the template of the [ToastDialog.xaml](https://github.com/V4SS3UR/ToastManager.WPF/blob/main/ToastManager/ToastDialog.xaml) UserControl provided in the library. 
 
 ## Contributing
 
