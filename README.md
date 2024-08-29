@@ -23,7 +23,10 @@ ToastManager is a simple C# library for displaying customizable toast notificati
   
 ## Installation
 
-Include it manually in your project.
+Install the [ToastManager.WPF NuGet package](https://www.nuget.org/packages/ToastManager.WPF/) :
+```
+Install-Package ToastManager.WPF
+```
 
 ### Usage
 

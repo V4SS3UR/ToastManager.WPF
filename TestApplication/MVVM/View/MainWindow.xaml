@@ -58,7 +58,8 @@
                 </Border>
             </UniformGrid>
         </DockPanel>
-        
+
+        <Border Background="White"/>
 
         <toast:Toast ToastName="MainWindowToast" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 

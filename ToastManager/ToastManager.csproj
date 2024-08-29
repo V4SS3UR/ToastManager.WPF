@@ -1,28 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0-windows;net461</TargetFrameworks>
+    <TargetFrameworks>net462;net47;net48;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
+    <Version>$(AssemblyVersion)</Version>
     <UseWPF>true</UseWPF>
-    <SignAssembly>False</SignAssembly>
-    <Version>1.0.0.0</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
+    <PackageId>$(AssemblyName).WPF</PackageId>
+    <Title>$(AssemblyName).WPF</Title>
+    <Authors>V4SS3UR</Authors>
+    <Product>$(AssemblyName).WPF</Product>
+    <Copyright>V4SS3UR</Copyright>
+    <Description>ToastManager is a lightweight C# library for displaying toast messages in desktop applications built with WPF.</Description>
+    <PackageProjectUrl>https://github.com/V4SS3UR/ToastManager.WPF</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/V4SS3UR/ToastManager.WPF</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>notifications;library;tools;wpf;overlay;toast;toast-notifications</PackageTags>
+    <PackageLicenseExpression> BSD-3-Clause</PackageLicenseExpression>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-windows|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-windows|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
-    <DebugType>none</DebugType>
-  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
