@@ -1,32 +1,61 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Media;
+using ToastManager.Core;
 
 namespace ToastManager
 {
     internal class ToastDictionary
     {
-        private static Dictionary<string, object> dictionary = new Dictionary<string, object>();     
+        // Use a tuple of (parent, toastName) as the unique key
+        private static Dictionary<(DependencyObject parent, string toastName), Toast> dictionary = new Dictionary<(DependencyObject, string), Toast>();
 
-        public static void RegisterToast(string toastName, Toast toast)
+        public static void RegisterToast(DependencyObject parent, string toastName, Toast toast)
         {
-            if (!dictionary.ContainsKey(toastName))
+            // Use parent (view instance) and toastName as the unique key
+            var key = (parent, toastName);
+            if (!dictionary.ContainsKey(key))
             {
-                dictionary.Add(toastName, toast);
+                dictionary.Add(key, toast);
             }
         }
-        public static void UnregisterToast(string toastName)
+
+        public static void UnregisterToast(DependencyObject parent, string toastName)
         {
-            if (dictionary.ContainsKey(toastName))
+            // Use parent (view instance) and toastName as the unique key
+            var key = (parent, toastName);
+            if (dictionary.ContainsKey(key))
             {
-                dictionary.Remove(toastName);
+                dictionary.Remove(key);
             }
         }
-        public static Toast GetToast(string toastName)
+
+        public static Toast GetToast(DependencyObject parent, string toastName)
         {
-            if (dictionary.ContainsKey(toastName))
+            // Use parent (view instance) and toastName as the unique key
+            var key = (parent, toastName);  
+            if (dictionary.ContainsKey(key))
             {
-                return (Toast)dictionary[toastName];
+                return dictionary[key];
             }
             return null;
         }
+
+        public static IEnumerable<Toast> GetToasts(string toastName)
+        {
+            // Get the entry with the toastName
+            var entry = dictionary.Where(x => x.Key.toastName == toastName);
+
+            if(entry != null)
+            {
+                return entry.Select(o => o.Value);
+            }
+
+            return null;
+        }
+
+
     }
 }
