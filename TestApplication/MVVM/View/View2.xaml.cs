@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
@@ -17,9 +18,16 @@ namespace TestApplication.MVVM.View
         public RelayCommand SuccessButtonCommand { get; set; }
         public RelayCommand InfoButtonCommand { get; set; }
 
+        private string _toastNameWithGuid; public string ToastNameWithGuid
+        {
+            get { return _toastNameWithGuid; }
+            set { _toastNameWithGuid = value; OnPropertyChanged(); }
+        }
+
+
         private Toast toast 
         { 
-            get => Toast.GetToast("View2Toast"); 
+            get => Toast.GetToast(this.ToastNameWithGuid); 
         }
 
         private bool _darkOverlay; public bool DarkOverlay 
@@ -32,6 +40,9 @@ namespace TestApplication.MVVM.View
         {
             InitializeComponent();
             this.DataContext = this;
+
+            var shortGuid = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+            ToastNameWithGuid = "View2Toast" + shortGuid;
 
             DarkOverlay = true;
 

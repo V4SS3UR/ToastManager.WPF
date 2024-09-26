@@ -22,7 +22,6 @@
             <Button Content="Info" Command="{Binding InfoButtonCommand}"/>
         </UniformGrid>
 
-
-        <toast:Toast ToastName="View2Toast" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <toast:Toast ToastName="{Binding ToastNameWithGuid, RelativeSource={RelativeSource AncestorType={x:Type local:View2}}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </UserControl>

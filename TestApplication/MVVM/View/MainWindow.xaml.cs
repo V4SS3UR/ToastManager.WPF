@@ -21,9 +21,10 @@ namespace TestApplication
         public RelayCommand InfoButtonCommand { get; set; }
         public RelayCommand CustomToastButtonCommand { get; set; }
         public RelayCommand CustomViewButtonCommand { get; set; }
+        public RelayCommand OpenNewInstanceCommand { get; set; }
 
         private Toast toast 
-        { 
+        {
             get => Toast.GetToast("MainWindowToast"); 
         }
 
@@ -37,8 +38,6 @@ namespace TestApplication
         {
             InitializeComponent();
             this.DataContext = this;
-
-            var toast = Toast.GetToast("MainWindowToast");
 
             WarningButtonCommand = new RelayCommand((parameter) =>
             {
@@ -64,17 +63,26 @@ namespace TestApplication
             {
                 ShowCustomView();
             });
-
-
-
-
-            this.Loaded += (sender, e) =>
+            OpenNewInstanceCommand = new RelayCommand((parameter) =>
             {
-                //Bring a welcome message when first loaded
-                var message = "Hi, welcome to ToastManager!";
-                var title = "Information";
+                var window = new MainWindow();
+                window.Show();
+            });
+
+            this.Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Bring a welcome message when first loaded
+            var message = "Hi, welcome to ToastManager!";
+            var title = "Information";
+
+            try
+            {
                 toast.ShowInfoToast(message, title, darkOverlay: true);
-            };
+            }
+            catch { }
         }
 
         private void ShowCustomToast()
